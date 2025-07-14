@@ -9,15 +9,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <Auth0Provider
-  domain="dev-8oivjmih178u6qpg.us.auth0.com"
-  clientId="USWlBGBM57kpWY8L5g1BTwYZ2uUArTAF"
+  domain={process.env.REACT_APP_AUTH0_DOMAIN || "dev-8oivjmih178u6qpg.us.auth0.com"}
+  clientId={process.env.REACT_APP_AUTH0_CLIENT_ID || "USWlBGBM57kpWY8L5g1BTwYZ2uUArTAF"}
   authorizationParams={{
-    redirect_uri: window.location.origin,
-    audience: "https://legaldoc-api"
+    redirect_uri: process.env.REACT_APP_AUTH0_REDIRECT_URI || `${window.location.origin}/callback`,
+    audience: process.env.REACT_APP_AUTH0_AUDIENCE || "https://legaldoc-api"
   }}
   useRefreshTokens={true}
   cacheLocation="localstorage"
-  skipRedirectCallback={true}
   >
     <React.StrictMode>
       <ThemeProvider>

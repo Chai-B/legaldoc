@@ -1,13 +1,29 @@
+# Python
 __pycache__/
 *.pyc
-.env
 venv/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Data files
 index/
 *.faiss
 *.pkl
-.DS_Store
-.DS_Store
-__pycache__/
 pdfs/
 uploads/
-.env.example
+
+# System files
+.DS_Store
+
+# Documentation
+warp_instructions.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

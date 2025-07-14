@@ -151,9 +151,9 @@ export default function AuthPage({ onAuthSuccess, onBack, cardSize = "xl" }) {
       setError("");
       setSuccess("");
 
-      const auth0Domain = 'dev-8oivjmih178u6qpg.us.auth0.com'; // Update with your Auth0 Domain
-      const clientId = 'USWlBGBM57kpWY8L5g1BTwYZ2uUArTAF'; // Update with your Auth0 Client ID
-      const redirectUri = window.location.origin; // Your application's redirect URI
+      const auth0Domain = process.env.REACT_APP_AUTH0_DOMAIN || 'dev-8oivjmih178u6qpg.us.auth0.com';
+      const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID || 'USWlBGBM57kpWY8L5g1BTwYZ2uUArTAF';
+      const redirectUri = process.env.REACT_APP_AUTH0_REDIRECT_URI || `${window.location.origin}/callback`;
       
       // Map provider to Auth0 connection
       const connectionMap = {

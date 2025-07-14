@@ -41,7 +41,7 @@ export default function App() {
   const { logout, isAuthenticated, user: auth0User, isLoading } = useAuth0();
 
   // Check if we're handling a callback
-  const isCallback = window.location.search.includes('code=') && window.location.search.includes('state=');
+  const isCallback = (window.location.search.includes('code=') && window.location.search.includes('state=')) || window.location.pathname === '/callback';
 
   // Check authentication on mount and when auth state changes
   useEffect(() => {
